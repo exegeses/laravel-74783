@@ -3,7 +3,7 @@
 # Curso de Laravel framework código 74783
 <img src="https://img.shields.io/badge/Laravel-F55247?style=for-the-badge&logo=laravel&logoColor=white"><img src="https://img.shields.io/badge/PHP-8993BF?style=for-the-badge&logo=php&logoColor=white"><img src="https://img.shields.io/badge/MySQL-4D9EB1?style=for-the-badge&logo=mysql&logoColor=white">
 > Curso de Laravel framework |  
-> Martes y Jueves de 19hs a 22:30hs (Arg) |  
+> Martes y Jueves de 19hs a 21:30hs (Arg) |  
 > 12 clases desde 27/03/2025 hasta 13/05/2025 |  
 > Código: 74783 |  
 > sensei: Marcos Pinardi |
