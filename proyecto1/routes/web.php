@@ -35,4 +35,8 @@ Route::get('/portfolio', function () {
                     'empresas'=>$empresas,
                 ]);
 });
-
+/* base de datos */
+Route::get('/personas', function () {
+    $personas = DB::select('select * from personas');
+    dd($personas);
+});
