@@ -10,3 +10,29 @@ Route::get('/', function () {
 Route::get('/saludo', function (){
     return 'Hola Mundo desde Laravel';
 });
+/*----- vistas ----*/
+Route::view('/inicio', 'inicio');
+Route::view('/servicios', 'servicios');
+// Route::view('/portfolio', 'portfolio');
+Route::get('/portfolio', function () {
+    $numero = 10 + 5;
+    $empresas = [
+        "Mercado Libre",
+        "Frávega",
+        "Coto Digital",
+        "DIA Online",
+        "Cuponstar",
+        "Groupon Argentina",
+        "LetsBonus",
+        "Pez Urbano",
+        "Descuentocity",
+        "Shopear"
+    ];
+    return view('portfolio',
+                [
+                    'fruta'=>'manzana',
+                    'numero'=>$numero,
+                    'empresas'=>$empresas,
+                ]);
+});
+
