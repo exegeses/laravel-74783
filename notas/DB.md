@@ -17,7 +17,7 @@
 ## métodos en Fluent Query Builder
 
     DB::table('nTabla')->get()  
-    DB::table('nTabla')->select('columnas')  
+    DB::table('nTabla')->select('columnas')->get()  
     DB::table('nTabla')->where()->first()
 
     DB::table('nTabla')->insert([])

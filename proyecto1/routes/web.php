@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 Route::get('/', function () {
     return view('welcome');
@@ -131,6 +132,41 @@ Route::post('/update/persona', function () {
             ->with([
                 'css' => 'danger',
                 'mensaje' => 'No se pudo modificar la persona: '.$nombre.' '.$apellido
+            ]);
+    }
+});
+Route::get('/delete/persona/{id}', function ( $id ) {
+    $persona = DB::table("personas")->where("id", $id)->first();
+    //$date = "2025-02-14";
+    $date = $persona->nacimiento;
+    $fecha = Carbon::createFromFormat('Y-m-d', $date)
+        ->format('d/m/Y');
+
+    return view('delete-persona',
+            [
+                'persona'=>$persona,
+                'fecha'=>$fecha
+            ]);
+});
+Route::post('/destroy/persona', function () {
+    $id = request('id');
+    $nombre = request('nombre');
+    $apellido = request('apellido');
+    try{
+        DB::table('personas')->where("id", $id)->delete();
+        // flashing de confirmación (redireccion + mensaje)
+        return redirect('/personas')
+            ->with([
+                'css' => 'success',
+                'mensaje' => 'Persona: '.$nombre.' '.$apellido. ' eliminada correctamente'
+            ]);
+    }
+    catch ( Throwable $th ){
+        // flashing de error (redireccion + mensaje)
+        return redirect('/personas')
+            ->with([
+                'css' => 'danger',
+                'mensaje' => 'No se pudo eliminar la persona: '.$nombre.' '.$apellido
             ]);
     }
 });

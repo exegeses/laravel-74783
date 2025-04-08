@@ -30,7 +30,7 @@
                     <td>{{ $persona->dni }}</td>
                     <td>{{ $persona->nacimiento }}</td>
                     <td><a href="/edit/persona/{{ $persona->id }}">editar</a></td>
-                    <td><a href="#">borrar</a></td>
+                    <td><a href="/delete/persona/{{ $persona->id }}">borrar</a></td>
                 </tr>
                 @endforeach
             </tbody>
