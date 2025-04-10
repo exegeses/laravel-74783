@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('marcas', function (Blueprint $table) {
             $table->tinyIncrements('idMarca');
-            $table->string('mkNombre', 45);
+            $table->string('mkNombre', 45)->unique();
         });
     }
 
