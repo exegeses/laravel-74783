@@ -1,7 +1,7 @@
-<img src="extras/imagenes/laravel-header.jpg">
+<img src="extras/imagenes/hero.png">
 
 # Curso de Laravel framework código 74783
-<img src="https://img.shields.io/badge/Laravel-F55247?style=for-the-badge&logo=laravel&logoColor=white"><img src="https://img.shields.io/badge/PHP-8993BF?style=for-the-badge&logo=php&logoColor=white"><img src="https://img.shields.io/badge/MySQL-4D9EB1?style=for-the-badge&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/Laravel-F55247?style=for-the-badge&logo=laravel&logoColor=white"><img src="https://img.shields.io/badge/PHP-8993BF?style=for-the-badge&logo=php&logoColor=white"><img src="https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white"><img src="https://img.shields.io/badge/MySQL-4D9EB1?style=for-the-badge&logo=mysql&logoColor=white">
 > Curso de Laravel framework |  
 > Martes y Jueves de 19hs a 22:30hs (Arg) |  
 > 12 clases desde 27/03/2025 hasta 13/05/2025 |  
@@ -9,10 +9,10 @@
 > sensei: Marcos Pinardi |
 
 1. Definición
-2. Requisitos <img alt="Packagist PHP Version Support" src="https://img.shields.io/packagist/php-v/laravel/laravel?style=flat-square" valign="middle"> <img alt="Packagist Version" src="https://img.shields.io/packagist/v/laravel/laravel" valign="middle">
+2. Requisitos <img alt="Composer Dependency Manager for PHP" src="https://img.shields.io/badge/Composer-885630?style=flat-square" valign="middle"> <img alt="Packagist PHP Version Support" src="https://img.shields.io/packagist/php-v/laravel/laravel?style=flat-square" valign="middle"> <img alt="Packagist Version" src="https://img.shields.io/packagist/v/laravel/laravel" valign="middle">
 3. Recursos
 4. Instalación
-5. Chaquear versión de Laravel 
+5. Chequear versión de Laravel 
 6. Iniciar el server
 7. Actualizar desde un proyecto existente
 
@@ -23,7 +23,7 @@
 > Fue creado en 2011 por Taylor Otwell y tiene una gran influencia de frameworks como Ruby on Rails, Sinatra y ASP.NET MVC.  
 > Gran parte de Laravel está formado por dependencias, especialmente de Symfony, esto implica que el desarrollo de Laravel dependa también del desarrollo de sus dependencias.
 
->> ¿Porqué Elegir Laravel?
+> ¿Porqué Elegir Laravel?
 - [ ] Desarrollo más rápido
 - [ ] Menos escritura de código
 - [ ] Bibliotecas para tareas comunes
@@ -36,9 +36,12 @@
 ## Requisitos
 > De Software
 
-![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/laravel/laravel?style=for-the-badge) ![Packagist Version](https://img.shields.io/packagist/v/laravel/laravel?style=for-the-badge)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/laravel/laravel?style=for-the-badge)
+![Composer](https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=fff)
+![Laravel](https://img.shields.io/badge/Laravel-Installer-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
+![Packagist Version](https://img.shields.io/packagist/v/laravel/laravel?style=for-the-badge)
 
-1. un terminal
+1. Terminal de comandos  [![Terminal de comandos](https://img.shields.io/badge/Hyper-000000?logo=hyper&logoColor=fff)](#)
 - [ ] la del sistema operativo
 - [ ] Git Bash <https://git-scm.com/>
 - [ ] cmDer <https://cmder.net/>
@@ -46,10 +49,10 @@
 
 2. PHP 8.2^ <img alt="Packagist PHP Version Support" src="https://img.shields.io/packagist/php-v/laravel/laravel?style=flat-square" valign="middle">
  
-3. Composer
-   Composer es un administrador de dependencias en PHP.  
+3. Composer <img alt="Composer Dependency Manager for PHP" src="https://img.shields.io/badge/Composer-885630?logo=composer&style=flat-square" valign="middle">  
    <https://getcomposer.org/>  
    <https://getcomposer.org/Composer-Setup.exe>
+4. Laravel installer 5.12^ ![Laravel](https://img.shields.io/badge/Laravel-Installer-%23FF2D20.svg?logo=laravel&logoColor=white)  
 
 ## Recursos (enlaces)
 
@@ -60,22 +63,16 @@ LaraJobs <https://larajobs.com/>
 
 ## Instalación
 
-> Usando composer vamos a movernos al directorio de trabajo    
+> Usando un terminal de comandos vamos a movernos al directorio de trabajo    
 > En ese directorio vamos a crear un proyecto (carpeta con toda la magia de laravel) .  
 > Con el comando "cd" nos movemos a nuestro directorio de trabajo    
-> y luego, con el comando "composer create-project" crearemos un proyecto
+> y luego, con el comando "laravel new" crearemos un proyecto
 
-`composer create-project laravel/laravel nombre "version"`
+`laravel new nombre-proyecto`
 
-> Ejemplo para instalar laravel 8x  
-`composer create-project laravel/laravel proyecto "8.*"`
+> Una vez finalizada la instalación, nos movemos al directorio del proyecto
 
-> Ejemplo para instalar laravel (versión más actual según tu versión de PHP - no necesita especificar versión)    
-`composer create-project laravel/laravel proyecto`
-
-> Una vez finalizada la instalación instalado, nos movemos al directorio del proyecto
-
-`cd proyecto`
+`cd nombre-proyecto`
 
 ## Chequear versión de Laravel  
     php artisan -V (tradicional)  
@@ -86,10 +83,9 @@ LaraJobs <https://larajobs.com/>
 
 > Y ya podemos arrancar el server:
 
-> ***EL MARAVILLOSO MUNDO DE ARTISAN***    
 > para iniciar al server es el comando
 
-`php artisan serve`
+`composer run dev`
 
 ----
 
