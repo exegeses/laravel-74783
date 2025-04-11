@@ -1,7 +1,7 @@
 # Controllers
 
 > Los controladores son clases adonde vamos a generar toda la lógica de negocios
-> Podemos generar la lógica de negocios en el en rotador; pero el Enrutador no está pensado para eso
+> Podemos generar la lógica de negocios en el enrutador; pero el Enrutador no está pensado para eso
 
 > podemos crear un controlador con el siguiente comando
 
