@@ -16,7 +16,7 @@
 
         <!-- formulario -->
         <div class="shadow-md rounded-md max-w-3xl mb-72">
-            <form action="/store/marca" method="post">
+            <form action="/marca/store" method="post">
             @csrf
                 <div class="p-6">
                     <div class="relative z-0 w-full mb-6 group">

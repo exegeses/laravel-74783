@@ -15,5 +15,13 @@
 
 ## atributos
 
+> cuando queríamos un motel vamos a necesitar configurar algunos atributos específicos que tienen que ver con cada una de las tablas
+> Laravel asume que cada una de las tablas es el nombre del Model en  minúscula y en plural 
+
+    protected $table ='nombre_tabla';
+ 
+> por ejemplo Laravel asume que cada una de las tablas tiene un primary key llamado "id"
+
+
 ## métodos
 
