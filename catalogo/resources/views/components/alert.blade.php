@@ -1,5 +1,5 @@
 
-    <div class="max-w-2xl mx-auto m-12 p-3 mb-4
+    <div class="m-12 p-3 mb-4
                         border border-{{ session('css') }}-500 bg-{{ session('css') }}-950
                         text-{{ session('css') }}-500 rounded">
         <svg class="w-6 h-6 inline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

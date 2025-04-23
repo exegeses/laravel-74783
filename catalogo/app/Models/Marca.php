@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Marca extends Model
 {
     //protected $table ='nombre_tabla';
+    protected $primaryKey = 'idMarca';
+    public $timestamps = false;
 }

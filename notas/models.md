@@ -15,12 +15,21 @@
 
 ## atributos
 
-> cuando queríamos un motel vamos a necesitar configurar algunos atributos específicos que tienen que ver con cada una de las tablas
+> cuando queríamos un model vamos a necesitar configurar algunos atributos específicos que tienen que ver con cada una de las tablas
 > Laravel asume que cada una de las tablas es el nombre del Model en  minúscula y en plural 
 
     protected $table ='nombre_tabla';
  
-> por ejemplo Laravel asume que cada una de las tablas tiene un primary key llamado "id"
+> Por ejemplo Laravel asume que cada una de las tablas tiene un primary key llamado "id"
+> si necesitamos modificar el nombre del primary key lo podemos hacer mediante el atributo protegido "$primaryKey"
+
+    protected $primaryKey = 'idMarca';  
+
+
+> Laravel asume que cada una de nuestras tablas tienen dos atributos relacionados a fecha de creación (created_at) y fecha de modificación (updated_at)
+> Si nosotros no vamos a usar estos atributos los desactivamos con el método público 'timestamps'
+
+    public $timestamps = false;  
 
 
 ## métodos

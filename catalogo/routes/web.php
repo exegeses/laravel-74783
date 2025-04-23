@@ -14,3 +14,6 @@ Route::view('/plantilla', 'plantilla');
 Route::get('/marcas', [ MarcaController::class, 'index' ]);
 Route::get('/marca/create', [ MarcaController::class, 'create' ]);
 Route::post('/marca/store', [ MarcaController::class, 'store' ]);
+Route::get('/marca/edit/{id}', [ MarcaController::class, 'edit' ]);
+Route::put('/marca/update', [ MarcaController::class, 'update' ]);
+Route::get('/marca/delete/{id}', [ MarcaController::class, 'delete' ]);
