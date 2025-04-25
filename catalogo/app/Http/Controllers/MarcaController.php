@@ -6,6 +6,8 @@ use App\Models\Marca;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
+use App\Models\Producto;
 
 class MarcaController extends Controller
 {
@@ -127,9 +129,30 @@ class MarcaController extends Controller
         }
     }
 
-    public function delete()
+    private function checkProducto( int $idMarca )
     {
-        return view('marcaDelete');
+        /* // obj | null
+        $check = DB::table('productos')
+                    ->where('idMarca', $idMarca)
+                    ->first();
+        */
+        $check = Producto::where('idMarca',$idMarca)->first();
+        return $check;
+    }
+
+    public function delete( string $id )
+    {
+        $marca = Marca::find($id);
+        //if( $this->checkProducto($id) ){
+        if( Producto::checkProductoPorMarca($id) ){
+            return redirect('/marcas')
+                        ->with([
+                            'css' => 'yellow',
+                            'mensaje' => 'No se puede eliminar la marca: '.$marca->mkNombre. ' porque tiene productos relacionados'
+                    ]);
+        }
+        // redirección a /productos + flashing
+        return view('marcaDelete', ['marca'=>$marca]);
     }
 
     /**
