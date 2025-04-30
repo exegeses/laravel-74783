@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\ProductoController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -17,3 +18,11 @@ Route::post('/marca/store', [ MarcaController::class, 'store' ]);
 Route::get('/marca/edit/{id}', [ MarcaController::class, 'edit' ]);
 Route::put('/marca/update', [ MarcaController::class, 'update' ]);
 Route::get('/marca/delete/{id}', [ MarcaController::class, 'delete' ]);
+Route::delete('/marca/destroy', [ MarcaController::class, 'destroy' ]);
+
+/*######################################*/
+## CRUD de categorías
+
+/*######################################*/
+## CRUD de productos
+Route::get('/productos', [ ProductoController::class, 'index' ]);

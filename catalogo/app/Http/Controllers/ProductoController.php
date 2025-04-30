@@ -12,7 +12,12 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        // obtenemos listado de productos
+        // $productos = DB::select();
+        // $productos = DB::table('productos as p')
+        //                      ->join('marcas as m', 'p.idMarca', '=', 'm.idMarca');
+        $productos = Producto::all();
+        return view('productos', ['productos' => $productos]);
     }
 
     /**

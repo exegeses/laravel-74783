@@ -20,11 +20,12 @@
                 {{ $marca->mkNombre }}
             </span>
             <form action="/marca/destroy" method="post">
-
-            <input type="hidden" name="idMarca"
-                       value="{{ 'idMarca' }}">
+            @csrf
+            @method('delete')
+                <input type="hidden" name="idMarca"
+                       value="{{ $marca->idMarca }}">
                 <input type="hidden" name="mkNombre"
-                       value="{{ 'mkNombre' }}">
+                       value="{{ $marca->mkNombre }}">
                 <div class="flex justify-between mt-6">
                     <button type="submit" class="text-white bg-teal-800 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-700 dark:hover:bg-teal-600 dark:focus:ring-teal-800">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="float-left w-6 h-6 mr-2">

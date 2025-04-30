@@ -129,18 +129,19 @@ class MarcaController extends Controller
         }
     }
 
-    private function checkProducto( int $idMarca )
+    private function checkProducto( int $idMarca ) : int
     {
         /* // obj | null
         $check = DB::table('productos')
                     ->where('idMarca', $idMarca)
                     ->first();
         */
-        $check = Producto::where('idMarca',$idMarca)->first();
+        //$check = Producto::where('idMarca',$idMarca)->first(); // Producto | null
+        $check = Producto::where('idMarca',$idMarca)->count();
         return $check;
     }
 
-    public function delete( string $id )
+    public function delete( string $id ) : RedirectResponse | View
     {
         $marca = Marca::find($id);
         //if( $this->checkProducto($id) ){
@@ -158,8 +159,28 @@ class MarcaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( Request $request ) : RedirectResponse
     {
-        //
+        $idMarca = $request->idMarca;
+        $mkNombre = $request->mkNombre;
+        try {
+            /* chequeamos que exista la marca a borrar
+                if( Marca::find($idMarca)->count() ){
+                    Marca::destroy($idMarca);
+                }else{  }
+            */
+            Marca::destroy($idMarca);
+            return redirect('/marcas')
+                    ->with([
+                        'css' => 'green',
+                        'mensaje' => "La marca: ".$mkNombre." eliminada correctamente."
+                    ]);
+        }catch ( Throwable $th ){
+                return redirect('/marcas')
+                        ->with([
+                        'css' => 'red',
+                        'mensaje' => "No se pudo eliminar la marca: ".$mkNombre
+                    ]);
+        }
     }
 }
