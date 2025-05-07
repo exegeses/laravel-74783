@@ -25,4 +25,13 @@ class Producto extends Model
                         );
     }
 
+    public function getCat() : BelongsTo
+    {
+        return $this->belongsTo(
+                            Categoria::class,
+                            'idCategoria',
+                            'idCategoria'
+                        );
+    }
+
 }

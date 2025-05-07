@@ -26,3 +26,5 @@ Route::delete('/marca/destroy', [ MarcaController::class, 'destroy' ]);
 /*######################################*/
 ## CRUD de productos
 Route::get('/productos', [ ProductoController::class, 'index' ]);
+Route::get('/producto/create', [ ProductoController::class, 'create' ]);
+Route::post('/producto/store', [ ProductoController::class, 'store' ]);

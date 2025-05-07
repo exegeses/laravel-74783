@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marca;
+use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductoRequest;
 
 class ProductoController extends Controller
 {
@@ -16,7 +19,7 @@ class ProductoController extends Controller
         // $productos = DB::select();
         // $productos = DB::table('productos as p')
         //                      ->join('marcas as m', 'p.idMarca', '=', 'm.idMarca');
-        $productos = Producto::all();
+        $productos = Producto::with(['getMarca', 'getCat'])->paginate(5);
         return view('productos', ['productos' => $productos]);
     }
 
@@ -25,15 +28,24 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        // obtenemos listados de marcas y de categorías
+        $marcas = Marca::all();
+        $categorias = Categoria::all();
+        return view('productoCreate',
+                [
+                    'marcas' => $marcas,
+                    'categorias' => $categorias
+                ]
+            );
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store( ProductoRequest $request )
     {
-        //
+        $prdNombre = $request->prdNombre;
+        dd('pasó validación');
     }
 
     /**

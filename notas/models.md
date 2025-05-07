@@ -34,7 +34,7 @@
 
 ## métodos
 
-> podemos tener métodos de relación para atraer información de otra tabla
+> Podemos tener métodos de relación para atraer información de otra tabla
 > básicamente lo mismo que haríamos con JOINS
 
 > tenemos los métodos de relación belongsTo(), belongsToMany(), hasOne() y hasMany()  
