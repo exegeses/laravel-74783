@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Producto extends Model
 {
 
+    protected $primaryKey = 'idProducto';
+    public $timestamps = false;
     static function checkProductoPorMarca( int $idMarca ) : int
     {
         //$check = self::where('idMarca',$idMarca)->first(); obj || null
