@@ -10,6 +10,9 @@ class Producto extends Model
 
     protected $primaryKey = 'idProducto';
     public $timestamps = false;
+
+    //protected $fillable = ['prdNombre', 'prdPrecio','idMarca', 'idCategoria','prdDescripcion','prdImagen'];
+    protected $guarded = [];
     static function checkProductoPorMarca( int $idMarca ) : int
     {
         //$check = self::where('idMarca',$idMarca)->first(); obj || null

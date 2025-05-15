@@ -48,6 +48,11 @@ class ProductoController extends Controller
         // si no enviaron imagen store()
         $prdImagen = 'noDisponible.svg';
 
+        // si no enviaron imagen update()
+        if( $request->has('imgActual') ){
+            $prdImagen = $request->imgActual;
+        }
+
         // en ENVIARON imagen
         if ( $request->file('prdImagen') ) {
             $file = $request->file('prdImagen');
@@ -69,14 +74,24 @@ class ProductoController extends Controller
         $prdNombre = $request->prdNombre;
         $prdImagen =  $this->uploadImage( $request );
         try {
-            $producto = new Producto;
+            /* $producto = new Producto;
             $producto->prdNombre = $prdNombre;
             $producto->prdPrecio = $request->prdPrecio;
             $producto->idMarca = $request->idMarca;
             $producto->idCategoria = $request->idCategoria;
             $producto->prdDescripcion = $request->prdDescripcion;
             $producto->prdImagen = $prdImagen;
-            $producto->save();
+            $producto->save();*/
+            Producto::create(
+                [
+                    'prdNombre' => $prdNombre,
+                    'prdPrecio' => $request->prdPrecio,
+                    'idMarca' => $request->idMarca,
+                    'idCategoria' => $request->idCategoria,
+                    'prdDescripcion' => $request->prdDescripcion,
+                    'prdImagen' => $prdImagen
+                ]
+            );
             return redirect('/productos')
                         ->with([
                             'mensaje' => 'Producto: '.$prdNombre.' agregado correctamente.',
@@ -121,9 +136,46 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    //public function update(Request $request)
+    public function update(ProductoRequest $request, Producto $producto)
     {
-        //
+        $prdNombre = $request->prdNombre;
+        //subidad de archivo*
+        $prdImagen =  $this->uploadImage( $request );
+        try {
+            // $producto = Producto::find($request->idProducto);
+            // asignamos atributos
+            /* $producto->prdNombre = $prdNombre;
+            $producto->prdPrecio = $request->prdPrecio;
+            $producto->idMarca = $request->idMarca;
+            $producto->idCategoria = $request->idCategoria;
+            $producto->prdDescripcion = $request->prdDescripcion;
+            $producto->prdImagen = $prdImagen;
+            $producto->save(); */
+            $producto->update(
+                [
+                    'prdNombre' => $prdNombre,
+                    'prdPrecio' => $request->prdPrecio,
+                    'idMarca' => $request->idMarca,
+                    'idCategoria' => $request->idCategoria,
+                    'prdDescripcion' => $request->prdDescripcion,
+                    'prdImagen' => $prdImagen
+                ]
+            );
+            return redirect('/productos')
+                ->with([
+                    'mensaje' => 'Producto: '.$prdNombre.' modificado correctamente.',
+                    'css' => 'green'
+                ]);
+
+        }catch ( Throwable $th ) {
+            return redirect('/productos')
+                ->with([
+                    'mensaje' => 'No se pudo modificar el producto: '.$prdNombre,
+                    'css' => 'red'
+                ]);
+
+        }
     }
 
     /**

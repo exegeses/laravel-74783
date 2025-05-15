@@ -63,7 +63,7 @@
                         </td>
                         <td class="py-4 px-6 text-sm font-medium text-gray-900  text-center">
                             <span class="bg-green-600 text-green-100 text-xs font-medium mr-2 px-2.5 py-0.5 rounded border border-green-500">
-                                ${{ 'Precio' }}
+                                ${{ $producto->prdPrecio }}
                             </span>
                         </td>
                         <td>

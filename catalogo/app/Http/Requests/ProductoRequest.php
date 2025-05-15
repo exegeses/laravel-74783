@@ -26,7 +26,7 @@ class ProductoRequest extends FormRequest
         return [
             //'prdNombre' => 'required|unique:productos,prdNombre',
             'prdNombre' => 'required|'.Rule::unique('productos')
-                                        ->ignore($request->idProducto).'|min:3|max:75',
+                                        ->ignore($request->idProducto, 'idProducto').'|min:3|max:75',
             'prdPrecio' => 'required|numeric|min:0',
             //'idMarca' => 'required|exists:marcas,idMarca',
             'idMarca' => 'required|'.Rule::exists('marcas', 'idMarca'),

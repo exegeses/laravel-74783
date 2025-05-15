@@ -16,7 +16,7 @@
 
         <div class="shadow-md sm:rounded-lg">
             <!-- formulario -->
-            <form action="/producto/update" method="post" enctype="multipart/form-data">
+            <form action="/producto/update/{{ $producto->idProducto }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
                 <div class="relative z-0 w-full mb-6 group">
@@ -43,7 +43,7 @@
                     <select name="idMarca" id="idMarca" class="block py-2.5 px-0 w-full text-2xl bg-transparent border-0 border-b-2 appearance-none text-teal-400 border-gray-600 focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" ">
                         <option value="">Seleccione una marca</option>
                         @foreach( $marcas as $marca )
-                        <option @selected($marca->idMarca == old('idMarca')) value="{{ $marca->idMarca }}">{{ $marca->mkNombre }}</option>
+                        <option @selected($marca->idMarca == old('idMarca', $producto->idMarca)) value="{{ $marca->idMarca }}">{{ $marca->mkNombre }}</option>
                         @endforeach
                     </select>
                     <label for="idMarca" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Marca del producto</label>
@@ -56,7 +56,7 @@
                     <select name="idCategoria" id="idCategoria" class="block py-2.5 px-0 w-full text-2xl bg-transparent border-0 border-b-2 appearance-none text-teal-400 border-gray-600 focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" ">
                         <option value="">Seleccione una categoría</option>
                         @foreach( $categorias as $categoria )
-                        <option @selected($categoria->idCategoria == old('idCategoria')) value="{{ $categoria->idCategoria }}">{{ $categoria->catNombre }}</option>
+                        <option @selected($categoria->idCategoria == old('idCategoria', $producto->idCategoria)) value="{{ $categoria->idCategoria }}">{{ $categoria->catNombre }}</option>
                         @endforeach
                     </select>
                     <label for="idCategoria" class="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-teal-600 peer-focus:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Categoría del producto</label>
@@ -91,6 +91,8 @@
 
                 <input type="hidden" name="idProducto"
                        value="{{ $producto->idProducto }}">
+                <input type="hidden" name="imgActual"
+                       value="{{ $producto->prdImagen }}">
 
                 <div class="flex justify-between">
                     <button type="submit" class="text-white bg-teal-800 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-700 dark:hover:bg-teal-600 dark:focus:ring-teal-800">

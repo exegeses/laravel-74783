@@ -26,7 +26,7 @@
     protected $primaryKey = 'idMarca';  
 
 
-> Laravel asume que cada una de nuestras tablas tienen dos atributos relacionados a fecha de creación (created_at) y fecha de modificación (updated_at)
+> Laravel asume que cada una de nuestras tablas tiene dos atributos relacionados a fecha de modificación (updated_at) y fecha de creación (created_at) 
 > Si nosotros no vamos a usar estos atributos los desactivamos con el método público 'timestamps'
 
     public $timestamps = false;  
